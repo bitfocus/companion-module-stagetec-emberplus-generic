@@ -13,7 +13,7 @@ export enum FeedbackId {
 	hitThreshold = 'hitThreshold',
 	belowThreshold = 'belowThreshold',
 	boolEqual = 'booleanEqual,',
-	enumEqual = 'enumerationEqual'
+	enumEqual = 'enumerationEqual',
 }
 
 export function GetFeedbacksList(
@@ -35,7 +35,8 @@ export function GetFeedbacksList(
 					type: 'dropdown',
 					label: 'Select registered path',
 					id: 'path',
-					choices: config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
+					choices:
+						config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
 					default: config.monitoredParameters?.find(() => true)?.id ?? 'No paths configured!',
 				},
 				{
@@ -49,9 +50,12 @@ export function GetFeedbacksList(
 				},
 			],
 			callback: (feedback) => {
-				return _self.getVariableValue(feedback.options['path']?.toString() ?? '') as number == feedback.options['value']
+				return (
+					(_self.getVariableValue(feedback.options['path']?.toString() ?? '') as number) == feedback.options['value']
+				)
 			},
-		},[FeedbackId.boolEqual]: {
+		},
+		[FeedbackId.boolEqual]: {
 			name: 'Bool Parameter Equals',
 			description: 'Checks the current value of a paramter',
 			type: 'boolean',
@@ -64,7 +68,8 @@ export function GetFeedbacksList(
 					type: 'dropdown',
 					label: 'Select registered path',
 					id: 'path',
-					choices: config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
+					choices:
+						config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
 					default: config.monitoredParameters?.find(() => true)?.id ?? 'No paths configured!',
 				},
 				{
@@ -75,9 +80,12 @@ export function GetFeedbacksList(
 				},
 			],
 			callback: (feedback) => {
-				return _self.getVariableValue(feedback.options['path']?.toString() ?? '') as boolean == feedback.options['value']
+				return (
+					(_self.getVariableValue(feedback.options['path']?.toString() ?? '') as boolean) == feedback.options['value']
+				)
 			},
-		},[FeedbackId.enumEqual]: {
+		},
+		[FeedbackId.enumEqual]: {
 			name: 'Enum Parameter Equals',
 			description: 'Checks the current value of a paramter',
 			type: 'boolean',
@@ -90,7 +98,8 @@ export function GetFeedbacksList(
 					type: 'dropdown',
 					label: 'Select registered path',
 					id: 'path',
-					choices: config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
+					choices:
+						config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
 					default: config.monitoredParameters?.find(() => true)?.id ?? 'No paths configured!',
 				},
 				{
@@ -117,7 +126,8 @@ export function GetFeedbacksList(
 					type: 'dropdown',
 					label: 'Select registered path',
 					id: 'path',
-					choices: config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
+					choices:
+						config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
 					default: config.monitoredParameters?.find(() => true)?.id ?? 'No paths configured!',
 				},
 				{
@@ -131,7 +141,10 @@ export function GetFeedbacksList(
 				},
 			],
 			callback: (feedback) => {
-				return (_self.getVariableValue(feedback.options['path']?.toString() ?? '') as number > (feedback.options['threshold'] as number))
+				return (
+					(_self.getVariableValue(feedback.options['path']?.toString() ?? '') as number) >
+					(feedback.options['threshold'] as number)
+				)
 			},
 		},
 		[FeedbackId.belowThreshold]: {
@@ -147,7 +160,8 @@ export function GetFeedbacksList(
 					type: 'dropdown',
 					label: 'Select registered path',
 					id: 'path',
-					choices: config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
+					choices:
+						config.monitoredParameters?.map((item) => <DropdownChoice>{ id: item.label, label: item.label }) ?? [],
 					default: config.monitoredParameters?.find(() => true)?.id ?? 'No paths configured!',
 				},
 				{
@@ -161,7 +175,10 @@ export function GetFeedbacksList(
 				},
 			],
 			callback: (feedback) => {
-				return ((_self.getVariableValue(feedback.options['path']?.toString() ?? '') as number) < (feedback.options['threshold'] as number))
+				return (
+					(_self.getVariableValue(feedback.options['path']?.toString() ?? '') as number) <
+					(feedback.options['threshold'] as number)
+				)
 			},
 		},
 	}

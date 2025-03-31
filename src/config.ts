@@ -2,8 +2,8 @@ import { Regex, SomeCompanionConfigField } from '@companion-module/base'
 
 export const portDefault = 9000
 
-export type monitoredParameters = {id: string, label: string}
-export type parsingPath = {path: string, elements: string[]}
+export type monitoredParameters = { id: string; label: string }
+export type parsingPath = { path: string; elements: string[] }
 
 export interface EmberPlusConfig {
 	host?: string

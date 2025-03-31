@@ -13,6 +13,6 @@ export class EmberPlusState {
 			source: -1,
 			target: -1,
 			matrix: -1,
-  	}
+		}
 	}
 }
