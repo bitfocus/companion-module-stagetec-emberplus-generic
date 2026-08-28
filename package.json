@@ -32,7 +32,7 @@
 		"node-emberplus": "^3.0.6"
 	},
 	"devDependencies": {
-		"@companion-module/tools": "^2.6.1",
+		"@companion-module/tools": "^2.8.0",
 		"@types/jquery": "^3.5.30",
 		"@types/node": "^22.13",
 		"eslint": "^9.23.0",
